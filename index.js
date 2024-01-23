@@ -1,6 +1,6 @@
 const express = require('express'); // importing the express.js library to create a web server
 const db = require('./config/connection'); // importing database connect config
-// const routes = require('./routes'); // imports routes modules
+const routes = require('./routes'); // imports routes modules
 
 const cwd = process.cwd(); //getting current working directory 
 

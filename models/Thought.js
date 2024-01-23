@@ -1,14 +1,13 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
-const dateFormat = require('../utils/dateFormat');
 
 //Thought Schema - Parent Document
 const thoughtSchema = new Schema({
   thoughtText: {
     type: String,
     required: true,
-    min: 1,
-    max: 280,
+    minlength: 1,
+    maxlength: 280,
   },
   createdAt: {
     type: Date,
@@ -19,7 +18,7 @@ const thoughtSchema = new Schema({
   },
   username: {
     type: String,
-    require: true,
+    required: true,
   },
   reactions: [reactionSchema], // Array of nested documents using the reactionSchema
 },

@@ -1,24 +1,6 @@
 const { Schema, model } = require("mongoose");
-
-//Reaction Schema - Child (Subdocument)
-const reactionSchema = new Schema({
-  reactionBody: {
-    type: String,
-    required: true,
-    max: 280,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (createdAtVal) => {
-      return new Date(createdAtVal).toLocaleString();
-    },
-  },
-});
+const reactionSchema = require('./Reaction');
+const dateFormat = require('../utils/dataFormate');
 
 //Thought Schema - Parent Document
 const thoughtSchema = new Schema({

@@ -2,9 +2,6 @@ const express = require('express'); // importing the express.js library to creat
 const db = require('./config/connection'); // importing database connect config
 const routes = require('./routes'); // imports routes modules
 
-const cwd = process.cwd(); //getting current working directory 
-
-
 const PORT = process.env.PORT || 3001; // setting port number to either env variable PORT or 3001 if not defined
 const app = express(); //creating an express app 
 
@@ -13,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
 //use routes modules
-// app.use(routes);
+app.use(routes);
 
 //Once database connection is open, start express server and listen on specified port
 db.once('open', () => {

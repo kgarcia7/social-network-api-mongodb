@@ -6,6 +6,7 @@
     "license": "MIT",
     "scripts": {
       "start": "node index",
+      "seed": "node utils/seed",
       "dev": "nodemon index"
     },
     "dependencies": {

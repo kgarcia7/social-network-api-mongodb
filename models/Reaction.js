@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, Types } = require('mongoose');
 
 //Reaction Schema - Child (Subdocument)
 const reactionSchema = new Schema({

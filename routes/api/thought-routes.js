@@ -37,5 +37,5 @@ router
     .delete(removeReaction);
 
 
-modules.exports = router;
+module.exports = router;
 

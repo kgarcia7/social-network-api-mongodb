@@ -29,7 +29,7 @@ router
 
 // user friends
 router
-    .route('/:userID/friends/:fiendID')
+    .route('/:userID/friends/:friendID')
     .post(addFriend)
     .delete(removeFriend);
 

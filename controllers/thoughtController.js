@@ -50,7 +50,7 @@ const thoughtController = {
           });
       }
 
-      res.json({ message: "Thought successfully created!" });
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -70,7 +70,7 @@ const thoughtController = {
           .json({ message: "No thought found with this id!" });
       }
 
-      res.json(thought);
+      res.json({ message: "Thought successfully updated!" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -112,7 +112,7 @@ const thoughtController = {
           .json({ message: "No thought found with this id!" });
       }
 
-      res.json({ message: "Thought successfully deleted!" });
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }

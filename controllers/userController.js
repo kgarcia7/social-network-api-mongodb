@@ -65,7 +65,7 @@ const userController = {
         return res.status(404).json({ message: 'No user found with this id! '});
       }
 
-      res.json({ message: 'User successfully deleted! '});
+      res.json({ message: 'User successfully deleted!'});
     } catch (err) {
       res.status(500).json(err);
     }
@@ -74,8 +74,8 @@ const userController = {
   async addFriend(req, res) {
     try {
       const user = await User.findOneAndUpdate(
-        { _id: req.params.friendID }, 
-        { $addToSet: { friends: req.params.userID } }, 
+        { _id: req.params.userID }, 
+        { $addToSet: { friends: req.params.friendID } }, 
         { new: true});
 
       if (!user) {
@@ -84,14 +84,15 @@ const userController = {
 
       res.json(user);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);    
     }
   },
   //remove a Friend 
   async removeFriend(req, res) {
     try {
-      const user = await User.findOneAndRemove(
-        { _id: req.params.userId }, 
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userID }, 
         { $pull: { friends: req.params.friendID }},
         { new: true});
 
